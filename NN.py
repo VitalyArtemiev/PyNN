@@ -17,6 +17,12 @@ def binfun(a, b, c):
 
 def binfunc( a):
     return binfun(a[0], a[1], a[2])
+    
+result= np.ones((8), dtype=bool)
+    
+def resfunc(a,b,c):
+  return result[a*4+b*2+c]
+  
 
 
 # the 4th column is for bias term
@@ -76,7 +82,13 @@ for j in range(60000):
 
 print("Output after training")
 print(l2)
-for i in range(len(l2)):
-    print(bool(round(l2[i, 0])),"\t", y[i, 0])
 
+
+for i in range(len(l2)):
+    result[i] = bool(round(l2[i, 0]))
+    
+print(result)
+  
+print(resfunc(1,1,1))
+  
 
